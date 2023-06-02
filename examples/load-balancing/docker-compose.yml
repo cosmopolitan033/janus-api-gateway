@@ -2,7 +2,7 @@ version: '3.3'
 services:
 
   api-gateway:
-    image:  api-gateway
+    image: api-gateway
     ports:
       - "8080:8080"
       - "8081:8081"
@@ -10,22 +10,27 @@ services:
       - service1
       - service2
       - service3
-      - auth-service
     volumes:
       - ./janus.toml:/etc/janus/janus.toml
       - ./apis:/etc/janus/apis
-      - ./auth:/etc/janus/auth
 
   service1:
     image: rodolpheche/wiremock
     ports:
       - '9089:8080'
     volumes:
-      - ./stubs/service1:/home/wiremock/mappings
+      - ./stubs:/home/wiremock/mappings
 
-  auth-service:
+  service2:
     image: rodolpheche/wiremock
     ports:
-      - '9088:8080'
+      - '9090:8080'
     volumes:
-      - ./stubs/auth:/home/wiremock/mappings
+      - ./stubs:/home/wiremock/mappings
+
+  service3:
+    image: rodolpheche/wiremock
+    ports:
+      - '9091:8080'
+    volumes:
+      - ./stubs:/home/wiremock/mappings
