@@ -1,11 +1,11 @@
 {
   "request": {
     "method": "GET",
-    "url": "/"
+    "url": "/status"
   },
   "response": {
     "status": 200,
-    "jsonBody": {"message":"Rate Limit Test!"},
+    "jsonBody": {"message":"All up and running"},
     "headers": {
         "Content-Type": "application/json"
     }

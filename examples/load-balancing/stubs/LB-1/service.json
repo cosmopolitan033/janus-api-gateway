@@ -5,7 +5,7 @@
   },
   "response": {
     "status": 200,
-    "jsonBody": {"message":"Hello World!"},
+    "jsonBody": {"message":"This is LB-1"},
     "headers": {
         "Content-Type": "application/json"
     }

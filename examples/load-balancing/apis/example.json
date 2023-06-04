@@ -7,9 +7,9 @@
         "upstreams" : {
             "balancing": "roundrobin",
             "targets": [
-                {"target": "http://service1:8080/"},
-                {"target": "http://service2:8080/"},
-                {"target": "http://service3:8080/"}
+                {"target": "http://LB-1:8080/"},
+                {"target": "http://LB-2:8080/"},
+                {"target": "http://LB-3:8080/"}
             ]
         },
         "strip_path" : false,

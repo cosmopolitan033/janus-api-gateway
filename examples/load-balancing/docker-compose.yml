@@ -7,30 +7,30 @@ services:
       - "8080:8080"
       - "8081:8081"
     depends_on:
-      - service1
-      - service2
-      - service3
+      - LB-1
+      - LB-2
+      - LB-3
     volumes:
       - ./janus.toml:/etc/janus/janus.toml
       - ./apis:/etc/janus/apis
 
-  service1:
+  LB-1:
     image: rodolpheche/wiremock
     ports:
       - '9089:8080'
     volumes:
-      - ./stubs:/home/wiremock/mappings
+      - ./stubs/LB-1:/home/wiremock/mappings
 
-  service2:
+  LB-2:
     image: rodolpheche/wiremock
     ports:
       - '9090:8080'
     volumes:
-      - ./stubs:/home/wiremock/mappings
+      - ./stubs/LB-2:/home/wiremock/mappings
 
-  service3:
+  LB-3:
     image: rodolpheche/wiremock
     ports:
       - '9091:8080'
     volumes:
-      - ./stubs:/home/wiremock/mappings
+      - ./stubs/LB-3:/home/wiremock/mappings

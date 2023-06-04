@@ -5,7 +5,7 @@
   },
   "response": {
     "status": 200,
-    "jsonBody": {"message":"Rate Limit Test!"},
+    "jsonBody": {"message":"This is LB-3"},
     "headers": {
         "Content-Type": "application/json"
     }
