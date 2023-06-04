@@ -1,0 +1,30 @@
+################################################################
+# Global configuration
+################################################################
+port = 8080
+
+[log]
+  level = "debug"
+
+################################################################
+# API configuration backend
+################################################################
+[web]
+  port = 8081
+
+  [web.credentials]
+    secret = "secret"
+
+    [web.credentials.basic]
+    users = [
+        {admin = "admin"},
+        {zhaocun = "123"}
+    ]
+
+    [web.credentials.github]
+    token = "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"
+    organizations = ["hellofresh"]
+    teams = {hellofresh = "devs"}
+# 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
+[database]
+  dsn = "file:///etc/janus"
