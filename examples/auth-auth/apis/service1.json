@@ -1,0 +1,30 @@
+{
+    "name" : "service1",
+    "active" : true,
+    "proxy" : {
+        "preserve_host" : false,
+        "listen_path" : "/service1/*",
+        "upstreams" : {
+            "balancing": "roundrobin",
+            "targets": [
+                {"target": "http://service1:8080/"}
+            ]
+        },
+        "strip_path" : false,
+        "append_path" : false,
+        "methods" : ["GET"]
+    },
+    "health_check": {
+        "url": "http://service1:8080/status",
+        "timeout": 3
+    },
+    "plugins": [
+        {
+            "name": "oauth2",
+            "enabled" : true,
+            "config": {
+                "server_name": "local"
+            }
+        }
+    ]
+}
