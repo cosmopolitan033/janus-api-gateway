@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+
+  api-gateway:
+    image: api-gateway
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - service-1
+      - service-2
+    volumes:
+      - ./janus.toml:/etc/janus/janus.toml
+      - ./apis:/etc/janus/apis
+
+  service-1:
+    image: rodolpheche/wiremock
+    ports:
+      - '9089:8080'
+    volumes:
+      - ./stubs/service1:/home/wiremock/mappings
+
+  service-2:
+    image: rodolpheche/wiremock
+    ports:
+      - '9090:8080'
+    volumes:
+      - ./stubs/service2:/home/wiremock/mappings
+
