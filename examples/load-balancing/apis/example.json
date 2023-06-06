@@ -5,11 +5,11 @@
         "preserve_host" : false,
         "listen_path" : "/example/*",
         "upstreams" : {
-            "balancing": "roundrobin",
+            "balancing": "weight",
             "targets": [
-                {"target": "http://LB-1:8080/"},
-                {"target": "http://LB-2:8080/"},
-                {"target": "http://LB-3:8080/"}
+                {"target": "http://LB-1:8080/","weight": 10},
+                {"target": "http://LB-2:8080/","weight": 30},
+                {"target": "http://LB-3:8080/","weight": 60}
             ]
         },
         "strip_path" : false,
